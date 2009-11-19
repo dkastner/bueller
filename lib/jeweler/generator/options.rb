@@ -12,8 +12,8 @@ class Jeweler
         self[:documentation_framework] = :rdoc
 
         git_config = Git.global_config
-        self[:user_name]       = git_config['user.name']
-        self[:user_email]      = git_config['user.email']
+        self[:user_name]       = ENV['GIT_AUTHOR_NAME']  || ENV['GIT_COMMITTER_NAME']  || git_config['user.name']
+        self[:user_email]      = ENV['GIT_AUTHOR_EMAIL'] || ENV['GIT_COMMITTER_EMAIL'] || git_config['user.email']
         self[:github_username] = git_config['github.user']
         self[:github_token]    = git_config['github.token']
 
