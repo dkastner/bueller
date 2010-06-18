@@ -73,6 +73,12 @@ class Jeweler
           end
         end
       end
+
+      desc "(deprecated) Start IRB with all runtime dependencies loaded"
+      task :console do
+        warn '`rake console` is deprecated in Jewler 2.0.0. Please use `bundle console` instead'
+        exec 'bundle console'
+      end
     end
   end
 end
