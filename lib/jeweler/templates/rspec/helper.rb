@@ -7,8 +7,9 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-require 'rspec'
 require '<%= require_name %>'
+require 'rspec'
+require 'rspec/autorun'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.

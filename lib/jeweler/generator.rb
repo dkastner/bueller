@@ -202,6 +202,12 @@ class Jeweler
       output_template_in_target File.join(testing_framework.to_s, 'flunking.rb'),
                                 File.join(test_dir, test_filename)
 
+      if testing_framework == :rspec
+        output_template_in_target File.join(testing_framework.to_s, '.rspec'),
+                                  File.join(test_dir, '.rspec')
+
+      end
+
       if use_cucumber?
         mkdir_in_target           features_dir
         output_template_in_target File.join(%w(features default.feature)), File.join('features', feature_filename)

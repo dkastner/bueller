@@ -1,8 +1,9 @@
 <% case testing_framework %>
 <% when :rspec %>
+require 'rspec/core'
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:<%= test_task %>) do |<%= test_task %>|
-  <%= test_task %>.rspec_opts = '-I<%= test_dir %>'
+  <%= test_task %>.pattern = FileList['<%= test_pattern %>']
 end
 <% when :micronaut %>
 require 'micronaut/rake_task'
@@ -25,7 +26,7 @@ end
 <% case testing_framework %>
 <% when :rspec %>
 RSpec::Core::RakeTask.new(:rcov) do |spec|
-  spec.rspec_opts = '-I<%= test_dir %>'
+  spec.pattern = '<%= test_pattern %>'
   spec.rcov = true
 end
 <% when :micronaut %>

@@ -10,8 +10,8 @@ YARD::Rake::YardocTask.new(:yardoc) do |t|
 end
 
 require 'rspec/core/rake_task'
-desc "Run all examples"
-RSpec::Core::RakeTask.new('examples') do |c|
+desc "Run all rspec examples"
+RSpec::Core::RakeTask.new('spec') do |c|
   c.rspec_opts = '-Ispec'
 end
 
@@ -25,4 +25,4 @@ namespace :features do
   end
 end
 
-task :default => [:features, :examples]
+task :default => [:features, :spec]

@@ -33,11 +33,14 @@ Feature: generated Rakefile
     And Rakefile has 'test' in the Rcov::RcovTask libs
     And Rakefile has "test" as the default task
 
+  @rspec
   Scenario: rspec
     When I generate a rspec project named 'the-perfect-gem' that is 'zomg, so good'
 
-    Then 'Rakefile' requires 'rspec/core/rake_task'
-    And Rakefile has "examples" as the default task
+    Then 'Rakefile' requires 'rspec/core'
+    And 'Rakefile' requires 'rspec/core/rake_task'
+    And Rakefile has 'spec/**/*_spec.rb' for the RSpec::Core::RakeTask pattern
+    And Rakefile has "spec" as the default task
 
   Scenario: shoulda
     When I generate a shoulda project named 'the-perfect-gem' that is 'zomg, so good'

@@ -23,6 +23,7 @@ Feature: generated test or spec
     And I have configured git sanely
     When I generate a rspec project named 'the-perfect-gem' that is 'zomg, so good'
     Then 'spec/spec_helper.rb' requires 'rspec'
+    And 'spec/spec_helper.rb' requires 'rspec/autorun'
     And 'spec/spec_helper.rb' requires 'the-perfect-gem'
 
   Scenario: shoulda
