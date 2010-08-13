@@ -94,16 +94,15 @@ class Jeweler
 
       self.summary                = options[:summary] || 'TODO: one-line summary of your gem'
       self.description            = options[:description] || 'TODO: detailed description of your gem'
-      self.use_cucumber    = options[:use_cucumber]
-      self.use_reek        = options[:use_reek]
-      self.use_roodi       = options[:use_roodi]
-      self.setup_gemcutter = options[:gemcutter]
-      self.setup_rubyforge = options[:rubyforge]
+      self.use_cucumber           = options[:use_cucumber]
+      self.use_reek               = options[:use_reek]
+      self.use_roodi              = options[:use_roodi]
+      self.setup_rubyforge        = options[:rubyforge]
 
       development_dependencies << 'cucumber' if use_cucumber?
 
-      development_dependencies << 'bundler'
-      development_dependencies << 'jeweler'
+      development_dependencies << ['bundler', '~> 1.0.9']
+      development_dependencies << ['jeweler', '>= 1.4.0']
       development_dependencies << 'rake'
       development_dependencies << 'rcov'
 
