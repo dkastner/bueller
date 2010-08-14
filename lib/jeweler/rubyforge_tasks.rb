@@ -29,6 +29,8 @@ class Jeweler
     def initialize
       yield self if block_given?
 
+      $stderr.puts "Releasing gems to Rubyforge is deprecated. See details at http://wiki.github.com/technicalpickles/jeweler/migrating-from-releasing-gems-to-rubyforge"
+
       define
     end
 
