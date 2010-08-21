@@ -1,12 +1,4 @@
-require 'bundler'
-begin
-  Bundler.setup
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
-end
-
+<%= render_template 'bundler_setup.erb' %>
 require '<%= require_name %>'
 require 'rspec'
 require 'rspec/autorun'

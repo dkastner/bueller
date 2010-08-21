@@ -31,7 +31,6 @@ Feature: generating cucumber stories
 
   Scenario: bundler
     Given a working directory
-    And I want bundler
     And I have configured git sanely
     And I want cucumber stories
     When I generate a project named 'the-perfect-gem' that is 'zomg, so good'

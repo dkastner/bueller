@@ -294,5 +294,5 @@ end
 Then /^'(.*)' sets up bundler$/ do |file|
   content = File.read(File.join(@working_dir, @name, file))
 
-  assert_match "Bundler.setup", content
+  content.should =~ /Bundler\.setup/
 end
