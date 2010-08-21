@@ -11,6 +11,7 @@ Feature: generated Rakefile
     When I generate a project named 'the-perfect-gem' that is 'zomg, so good' and described as 'Descriptive'
 
     Then 'Rakefile' requires 'bundler'
+    And 'Rakefile' sets up bundler
     And 'Rakefile' requires 'rubygems'
     And 'Rakefile' requires 'rake'
     And 'Rakefile' requires 'rake/rdoctask'
@@ -133,3 +134,4 @@ Feature: generated Rakefile
   Scenario: bundler
     When I generate a project named 'the-perfect-gem' that is 'zomg, so good' and described as 'Descriptive'
     Then 'Rakefile' requires 'bundler'
+    And 'Rakefile' sets up bundler

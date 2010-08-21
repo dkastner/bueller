@@ -50,8 +50,8 @@ Given /^I have configured git sanely$/ do
           'github.token' => @github_token})
 end
 
-Given /^I set BUELLER_OPTS env variable to "(.*)"$/ do |val|
-  ENV['BUELLER_OPTS'] = val
+Given /^I set JEWELER_OPTS env variable to "(.*)"$/ do |val|
+  ENV['JEWELER_OPTS'] = val
 end
 
 Given /^it is the year (\d+)$/ do |year|
@@ -275,7 +275,7 @@ end
 
 
 After do
-  ENV['BUELLER_OPTS'] = nil
+  ENV['JEWELER_OPTS'] = nil
 end
 
 Then /^'Gemfile' depends on the gemspec$/ do
@@ -289,4 +289,10 @@ end
 
 Then /^the gemspec has development dependency '(.*)'$/ do |gem|
   Then %Q{'the-perfect-gem.gemspec' contains 'add_development_dependency '#{gem}''}
+end
+
+Then /^'(.*)' sets up bundler$/ do |file|
+  content = File.read(File.join(@working_dir, @name, file))
+
+  assert_match "Bundler.setup", content
 end

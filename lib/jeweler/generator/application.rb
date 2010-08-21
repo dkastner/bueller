@@ -3,8 +3,8 @@ class Jeweler
     class Application
       class << self
         def run!(*arguments)
-          env_opts = if ENV['BUELLER_OPTS']
-            Jeweler::Generator::Options.new(ENV['BUELLER_OPTS'].split(' '))
+          env_opts = if ENV['JEWELER_OPTS']
+            Jeweler::Generator::Options.new(ENV['JEWELER_OPTS'].split(' '))
           end
           options = Jeweler::Generator::Options.new(arguments)
           options = options.merge(env_opts) if env_opts
