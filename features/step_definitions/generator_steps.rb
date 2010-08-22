@@ -296,3 +296,9 @@ Then /^'(.*)' sets up bundler$/ do |file|
 
   content.should =~ /Bundler\.setup/
 end
+
+Then /^'Gemfile' uses the (.*) source$/ do |source|
+  content = File.read(File.join(@working_dir, @name, 'Gemfile'))
+
+  content.should =~ /source :#{source}/
+end

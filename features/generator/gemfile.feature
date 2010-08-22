@@ -9,4 +9,6 @@ Feature: generated Gemfile
 
   Scenario: default
     When I generate a project named 'the-perfect-gem' that is 'zomg, so good'
-    Then 'Gemfile' depends on the gemspec
+    Then a file named 'the-perfect-gem/Gemfile' is created
+    And 'Gemfile' depends on the gemspec
+    And 'Gemfile' uses the rubygems source
