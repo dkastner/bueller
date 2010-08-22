@@ -2,14 +2,14 @@ $:.push File.expand_path("../lib", __FILE__)
 require 'jeweler/version'
 
 Gem::Specification.new do |s|
-  s.name = 'jeweler'
+  s.name = %q{jeweler}
   s.version = Jeweler::VERSION
-  s.date = "2011-03-05"
-  s.authors = ['Derek Kastner']
-  s.email = 'dkastner@gmail.com'
+  s.date = %q{2010-08-21}
+  s.authors = ["Josh Nichols"]
+  s.email = %q{josh@technicalpickles.com}
   s.homepage = 'http://github.com/dkastner/jeweler'
   s.summary = 'Tools for building gems with bundler and friends'
-  s.description = 'Bueller provides a command to create new gem project directories. Code to help you start testing is generated according to the testing framework you choose. Bueller also provides handy tools for versioning and releasing your gem to github and rubygems.'
+  s.description = %q{Simple and opinionated helper for creating Rubygem projects on GitHub}
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = [
     "LICENSE",
