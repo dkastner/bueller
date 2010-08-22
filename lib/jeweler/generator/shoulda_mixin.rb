@@ -2,7 +2,7 @@ class Jeweler
   class Generator
     module ShouldaMixin
       def self.extended(generator)
-        generator.development_dependencies << 'shoulda'
+        generator.development_dependencies << ['shoulda']
       end
 
       def default_task

@@ -102,15 +102,15 @@ class Jeweler
       self.use_roodi              = options[:use_roodi]
       self.setup_rubyforge        = options[:rubyforge]
 
-      development_dependencies << 'cucumber' if use_cucumber?
+      development_dependencies << ['cucumber'] if use_cucumber?
 
       development_dependencies << ['bundler', '~> 1.0.9']
       development_dependencies << ['jeweler', "~> #{Jeweler::VERSION}"]
-      development_dependencies << 'rake'
-      development_dependencies << 'rcov'
+      development_dependencies << ['rake']
+      development_dependencies << ['rcov']
 
-      development_dependencies << 'reek' if use_reek?
-      development_dependencies << 'roodi' if use_roodi?
+      development_dependencies << ["reek", "~> 1.2.8"] if use_reek?
+      development_dependencies << ["roodi", "~> 2.1.0"] if use_roodi?
 
       self.user_name       = options[:user_name]
       self.user_email      = options[:user_email]

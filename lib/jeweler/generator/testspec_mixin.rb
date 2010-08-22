@@ -2,7 +2,7 @@ class Jeweler
   class Generator
     module TestspecMixin
       def self.extended(generator)
-        generator.development_dependencies << 'test-spec'
+        generator.development_dependencies << ['test-spec']
       end
 
       def default_task

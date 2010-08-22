@@ -288,7 +288,7 @@ Then /^the gemspec has '(.*)' set to '(.*)'$/ do |property, value|
 end
 
 Then /^the gemspec has development dependency '(.*)'$/ do |gem|
-  Then %Q{'the-perfect-gem.gemspec' contains 'add_development_dependency '#{gem}''}
+  Then %Q{'the-perfect-gem.gemspec' contains 'add_development_dependency ["#{gem}"'}
 end
 
 Then /^'(.*)' sets up bundler$/ do |file|
@@ -300,5 +300,5 @@ end
 Then /^'Gemfile' uses the (.*) source$/ do |source|
   content = File.read(File.join(@working_dir, @name, 'Gemfile'))
 
-  content.should =~ /source :#{source}/
+  content.should =~ /source.*#{source}/
 end

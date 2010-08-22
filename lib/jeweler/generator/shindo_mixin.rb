@@ -2,7 +2,7 @@ class Jeweler
   class Generator
     module ShindoMixin
       def self.extended(generator)
-        generator.development_dependencies << 'shindo'
+        generator.development_dependencies << ['shindo']
       end
 
       def default_task
