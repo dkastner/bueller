@@ -7,6 +7,8 @@ require 'uri'
 require 'fileutils'
 require 'pathname'
 
+require 'jeweler/version'
+
 class Jeweler
   class NoGitUserName < StandardError
   end
@@ -103,7 +105,7 @@ class Jeweler
       development_dependencies << 'cucumber' if use_cucumber?
 
       development_dependencies << ['bundler', '~> 1.0.9']
-      development_dependencies << ['jeweler', '>= 1.4.0']
+      development_dependencies << ['jeweler', "~> #{Jeweler::VERSION}"]
       development_dependencies << 'rake'
       development_dependencies << 'rcov'
 

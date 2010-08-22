@@ -1,3 +1,3 @@
 class Jeweler
-  VERSION = "0.0.6"
+  VERSION = "1.5.0.pre2"
 end
