@@ -14,7 +14,7 @@ end
 class Jeweler
   # Rake tasks for managing your gem.
   #
-  # Here's a basic example of using it:
+  # Here's a basic usage example:
   #
   #   Jeweler::Tasks.new
   class Tasks < ::Rake::TaskLib
@@ -76,6 +76,7 @@ class Jeweler
 
       desc "(deprecated) Start IRB with all runtime dependencies loaded"
       task :console, [:script] do |t, args|
+        # TODO move to a command
         warn '`rake console` is deprecated in Jewler 2.0.0. Please use `bundle console` instead'
         if args.script
           load args.script
