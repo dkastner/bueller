@@ -4,8 +4,8 @@ require 'jeweler/version'
 Gem::Specification.new do |s|
   s.name = %q{jeweler}
   s.version = Jeweler::VERSION
-  s.date = %q{2010-09-07}
   s.authors = ["Josh Nichols"]
+  s.date = %q{2010-09-07}
   s.default_executable = %q{jeweler}
   s.description = %q{Simple and opinionated helper for creating Rubygem projects on GitHub}
   s.email = %q{josh@technicalpickles.com}
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
               ['lib/jeweler/templates/.gitignore',
                'lib/jeweler/templates/.document',
                'lib/jeweler/templates/rspec/.rspec']
-  s.homepage = 'http://github.com/technicalpickles/jeweler'
+  s.homepage = %q{http://github.com/technicalpickles/jeweler}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Opinionated tool for creating and managing RubyGem projects}
