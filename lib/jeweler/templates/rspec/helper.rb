@@ -1,4 +1,3 @@
-<%= render_template 'bundler_setup.erb' %>
 require '<%= require_name %>'
 require 'rspec'
 require 'rspec/autorun'
