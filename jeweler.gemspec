@@ -11,7 +11,8 @@ Gem::Specification.new do |s|
   s.email = %q{josh@technicalpickles.com}
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = [
-    "LICENSE",
+    "ChangeLog.markdown",
+    "LICENSE.txt",
     "README.markdown"
   ]
   s.files = Dir.glob('lib/**/*') + Dir.glob('bin/**/*') + 
