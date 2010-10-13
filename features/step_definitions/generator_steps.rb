@@ -54,12 +54,6 @@ Given /^I set JEWELER_OPTS env variable to "(.*)"$/ do |val|
   ENV['JEWELER_OPTS'] = val
 end
 
-Given /^it is the year (\d+)$/ do |year|
-  time = Time.local(year.to_i, 9, 1, 10, 5, 0)
-  Timecop.travel(time)
-end
-
-
 When /^I generate a (.*)project named '((?:\w|-|_)+)' that is '([^']*)'$/ do |testing_framework, name, summary|
   When "I generate a #{testing_framework}project named '#{name}' that is '#{summary}' and described as ''"
 end
@@ -166,13 +160,19 @@ Then /^'(.*)' mentions copyright belonging to me in the current year$/ do |file|
 end
 
 
-Then /^LICENSE credits '(.*)'$/ do |copyright_holder|
-  Then "a file named 'the-perfect-gem/LICENSE' is created"
-  Then "'LICENSE' contains '#{copyright_holder}'"
+Then /^LICENSE\.txt credits '(.*)'$/ do |copyright_holder|
+  Then "a file named 'the-perfect-gem/LICENSE.txt' is created"
+  Then "'LICENSE.txt' contains '#{copyright_holder}'"
 end
 
-Then /^LICENSE has a copyright in the year (\d+)$/ do |year|
-  Then "a file named 'the-perfect-gem/LICENSE' is created"
+Given /^it is the year (\d+)$/ do |year|
+  time = Time.local(year.to_i, 9, 1, 10, 5, 0)
+  Timecop.travel(time)
+end
+
+
+Then /^LICENSE\.txt has a copyright in the year (\d+)$/ do |year|
+  Then "a file named 'the-perfect-gem/LICENSE.txt' is created"
   Then "'LICENSE' contains '#{year}'"
 end
 
