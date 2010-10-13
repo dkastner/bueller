@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors = ["Josh Nichols"]
   s.date = %q{2009-03-13}
   s.email = %q{josh@technicalpickles.com}
-  s.extra_rdoc_files = ["README.rdoc", "LICENSE"]
+  s.extra_rdoc_files = ["README.rdoc", "LICENSE.txt"]
   s.files = Dir.glob('lib/**/*.rb')
   s.test_files = Dir.glob('test/**/*.rb')
   s.has_rdoc = true

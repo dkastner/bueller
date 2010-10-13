@@ -173,7 +173,7 @@ end
 
 Then /^LICENSE\.txt has a copyright in the year (\d+)$/ do |year|
   Then "a file named 'the-perfect-gem/LICENSE.txt' is created"
-  Then "'LICENSE' contains '#{year}'"
+  Then "'LICENSE.txt' contains '#{year}'"
 end
 
 
