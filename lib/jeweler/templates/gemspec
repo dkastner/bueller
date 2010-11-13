@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.authors = ['<%= user_name %>']
   s.email = '<%= user_email %>'
   s.homepage = 'http://github.com/<%= github_username %>/<%= project_name %>'
+  s.licenses = ["MIT"]
   s.summary = %Q{<%= summary %>}
   s.description = %Q{<%= description %>}
   s.extra_rdoc_files = [

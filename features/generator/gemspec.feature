@@ -12,6 +12,7 @@ Feature: generated Rakefile
     Then the gemspec has 'authors' set to 'foo'
     And the gemspec has 'email' set to 'bar@example.com'
     And the gemspec has 'homepage' set to 'http://github.com/technicalpickles/the-perfect-gem'
+    And the gemspec has 'licenses' set to 'MIT'
 
   Scenario: cucumber
     Given I want cucumber stories

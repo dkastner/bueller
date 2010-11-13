@@ -1,8 +1,5 @@
 require 'jeweler'
 Jeweler::Tasks.new
-<% if use_cucumber? %>
-Jeweler::GemcutterTasks.new
-<% end %>
 <% if setup_rubyforge? %>
 Jeweler::RubyforgeTasks.new do |rubyforge|
   rubyforge.doc_task = "<%= doc_task %>"
