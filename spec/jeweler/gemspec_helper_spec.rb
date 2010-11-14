@@ -6,12 +6,10 @@ describe Jeweler::GemSpecHelper do
   let(:helper) { Jeweler::GemSpecHelper.new('.') }
 
   describe "#write" do
-    it 'should include updates made to the gemspec' do
+    it 'should write the gemspec' do
       file = mock(File)
       File.stub!(:open).and_yield file
-      Time.stub!(:now).and_return Time.parse('2011-03-02 23:33:03')
-      helper.set_date
-      file.should_receive(:puts).with(/2011-03-02/)
+      file.should_receive(:puts).with(/\d{4}(-\d\d){2}/)
       helper.write
     end
   end

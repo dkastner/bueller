@@ -25,7 +25,6 @@ class Jeweler
         def run
           update_version
 
-          gemspec_helper.set_date
           gemspec_helper.write
           version_helper.write_version
 

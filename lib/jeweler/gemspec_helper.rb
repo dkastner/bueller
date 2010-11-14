@@ -54,11 +54,6 @@ class Jeweler
       File.join(base_dir, 'pkg', spec.file_name)
     end
 
-    def set_date
-      spec_source.sub! /\.date\s*=\s*.*/, %Q{.date = "#{Time.now.strftime('%Y-%m-%d')}"}
-      reload_spec
-    end
-
     def has_version?
       !spec.version.nil?
     end

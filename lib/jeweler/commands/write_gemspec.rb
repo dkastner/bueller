@@ -12,7 +12,6 @@ class Jeweler
       end
 
       def run
-        gemspec_helper.set_date
         gemspec_helper.write
 
         output.puts "Generated: #{gemspec_helper.path}"  

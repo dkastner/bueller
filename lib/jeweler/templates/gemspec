@@ -5,7 +5,6 @@ Gem::Specification.new do |s|
   s.name = '<%= project_name %>'
   s.version = <%= constant_name %>::VERSION
   s.platform = Gem::Platform::RUBY
-  s.date = '<%= Time.now.strftime('%Y-%m-%d') %>'
   s.authors = ['<%= user_name %>']
   s.email = '<%= user_email %>'
   s.homepage = 'http://github.com/<%= github_username %>/<%= project_name %>'
