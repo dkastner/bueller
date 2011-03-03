@@ -302,3 +302,10 @@ Then /^'Gemfile' uses the (.*) source$/ do |source|
 
   content.should =~ /source.*#{source}/
 end
+
+
+Then /^Rakefile has a magic comment for UTF\-(\d+)$/ do |arg1|
+  content = File.read(File.join(@working_dir, @name, 'Rakefile'))
+  content.should =~ /# encoding: utf-8/
+end
+

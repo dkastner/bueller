@@ -15,6 +15,7 @@ Feature: generated Rakefile
     And 'Rakefile' requires 'rubygems'
     And 'Rakefile' requires 'rake'
     And 'Rakefile' requires 'rake/rdoctask'
+    And Rakefile has a magic comment for UTF-8
 
   Scenario: bacon
     When I generate a bacon project named 'the-perfect-gem' that is 'zomg, so good'
