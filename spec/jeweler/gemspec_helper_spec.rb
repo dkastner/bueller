@@ -9,7 +9,7 @@ describe Jeweler::GemSpecHelper do
     it 'should write the gemspec' do
       file = mock(File)
       File.stub!(:open).and_yield file
-      file.should_receive(:puts).with(/\d{4}(-\d\d){2}/)
+      file.should_receive(:puts)
       helper.write
     end
   end

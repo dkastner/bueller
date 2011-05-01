@@ -1,12 +1,6 @@
 require 'spec_helper'
 
 describe Jeweler::Generator::Application do
-  before :each do
-#    opts = {}
-#    opts.stub!(:opts).and_return({})
-#    Jeweler::Generator::Options.stub!(:new).and_return(opts)
-  end
-
   context "when options indicate help usage" do
     let(:application) { App.run_application('-h') }
 
