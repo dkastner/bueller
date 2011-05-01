@@ -22,12 +22,13 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/technicalpickles/jeweler}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.4.2}
   s.summary = %q{Opinionated tool for creating and managing RubyGem projects}
-  s.test_files = Dir.glob('spec/**/*')
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.7")
-  s.specification_version = 3
+  if s.respond_to? :specification_version then
+    s.specification_version = 3
+  end
 
   s.executables = ['jeweler']
 
