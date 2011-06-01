@@ -4,8 +4,9 @@ require 'jeweler/version'
 Gem::Specification.new do |s|
   s.name = %q{jeweler}
   s.version = Jeweler::VERSION
+
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Josh Nichols"]
+  s.authors = [%q{Josh Nichols}]
   s.default_executable = %q{jeweler}
   s.description = %q{Simple and opinionated helper for creating Rubygem projects on GitHub}
   s.email = %q{josh@technicalpickles.com}
@@ -20,9 +21,9 @@ Gem::Specification.new do |s|
                'lib/jeweler/templates/.document',
                'lib/jeweler/templates/rspec/.rspec']
   s.homepage = %q{http://github.com/technicalpickles/jeweler}
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.4.2}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.4}
   s.summary = %q{Opinionated tool for creating and managing RubyGem projects}
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.7")
@@ -30,7 +31,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
   end
 
-  s.executables = ['jeweler']
+  s.executables = [%q{jeweler}]
 
   s.add_runtime_dependency 'bundler', '~> 1.0.9'
   s.add_runtime_dependency 'git', '>= 1.2.5'
