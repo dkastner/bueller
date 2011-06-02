@@ -112,7 +112,7 @@ describe Jeweler::Generator do
       end
 
       it "should set target directory to the project name" do
-        generator.target_dir.should == GitSupport.project_name
+        File.split(generator.target_dir).last.should == GitSupport.project_name
       end
 
       it "should set user's name from git config" do
@@ -186,6 +186,21 @@ describe Jeweler::Generator do
     generator.git_remote.should == 'git@github.com:johndoe/the-perfect-gem.git'
     generator.git_remote = 'user@host:/path/to/repo'
     generator.git_remote.should == 'user@host:/path/to/repo'
+  end
+
+  it 'extracts the project name from an absolute path' do
+    generator = Jeweler::Generator.new options.merge(:project_name => '/tmp/my-project')
+    generator.project_name.should == 'my-project'
+  end
+
+  it 'extracts the project name from a relative path' do
+    generator = Jeweler::Generator.new options.merge(:project_name => '../my-project')
+    generator.project_name.should == 'my-project'
+  end
+
+  it 'extracts the project name from a direct path' do
+    generator = Jeweler::Generator.new options.merge(:project_name => 'my-project')
+    generator.project_name.should == 'my-project'
   end
 
   it 'should set up a project using shoulda' do

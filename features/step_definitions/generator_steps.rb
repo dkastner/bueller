@@ -147,7 +147,7 @@ Then /^Rakefile has '(.*)' in the Rcov::RcovTask rcov_opts$/ do |rcov_opts|
   @rakefile_content ||= File.read(File.join(@working_dir, @name, 'Rakefile'))
   block_variable, task_block = yank_task_info(@rakefile_content, 'Rcov::RcovTask')
 
-  assert_match "#{block_variable}.rcov_opts << '#{rcov_opts}'", @rakefile_content
+  @rakefile_content.should =~ /#{block_variable}.rcov_opts << '#{Regexp.escape(rcov_opts)}'/
 end
 
 
