@@ -68,16 +68,15 @@ When /^I generate a (.*)project named '((?:\w|-|_)+)' that is '([^']*)' and desc
     @testing_framework = testing_framework.to_sym
   end
 
-  arguments = ['--directory',
-               "#{@working_dir}/#{@name}",
-               '--summary', @summary,
+
+  arguments = [ '--summary', @summary,
                '--description', @description,
                 @use_cucumber ? '--cucumber' : nil,
                 @testing_framework ? "--#{@testing_framework}" : nil,
                 @use_roodi ? '--roodi' : nil,
                 @use_reek ? '--reek' : nil,
                 @documentation_framework ? "--#{@documentation_framework}" : nil,
-                @name].compact
+                "#{@working_dir}/#{@name}"].compact
 
   @stdout = OutputCatcher.catch_out do
     Jeweler::Generator::Application.run! *arguments
