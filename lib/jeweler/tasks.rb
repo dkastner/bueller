@@ -1,5 +1,9 @@
 require 'rake/tasklib'
 
+# Clean up after gem building
+require 'rake/clean'
+CLEAN.include('pkg/*.gem')
+
 class Rake::Application
   attr_accessor :jeweler_tasks
 
@@ -73,6 +77,8 @@ class Jeweler
           end
         end
       end
+
+      task :release => :clean
 
       desc "(deprecated) Start IRB with all runtime dependencies loaded"
       task :console, [:script] do |t, args|
