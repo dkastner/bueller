@@ -2,15 +2,15 @@ $:.push File.expand_path("../lib", __FILE__)
 require 'jeweler/version'
 
 Gem::Specification.new do |s|
-  s.name = %q{jeweler}
+  s.name = "jeweler"
   s.version = Jeweler::VERSION
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josh Nichols"]
-  s.default_executable = %q{jeweler}
-  s.description = %q{Simple and opinionated helper for creating Rubygem projects on GitHub}
-  s.email = %q{josh@technicalpickles.com}
+  s.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
+  s.email = "josh@technicalpickles.com"
   s.rdoc_options = ['--charset=UTF-8']
+  s.executables = ["jeweler"]
   s.extra_rdoc_files = [
     "ChangeLog.markdown",
     "LICENSE.txt",
@@ -20,18 +20,17 @@ Gem::Specification.new do |s|
               ['lib/jeweler/templates/.gitignore',
                'lib/jeweler/templates/.document',
                'lib/jeweler/templates/rspec/.rspec']
-  s.homepage = %q{http://github.com/technicalpickles/jeweler}
+  s.homepage = "http://github.com/technicalpickles/jeweler"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.4.2}
-  s.summary = %q{Opinionated tool for creating and managing RubyGem projects}
+  s.rubygems_version = "1.8.10"
+  s.summary = "Opinionated tool for creating and managing RubyGem projects"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.7")
   if s.respond_to? :specification_version then
     s.specification_version = 3
   end
 
-  s.executables = ["jeweler"]
 
   s.add_runtime_dependency 'bundler', '~> 1.0.9'
   s.add_runtime_dependency 'git', '>= 1.2.5'
