@@ -15,7 +15,7 @@ class Jeweler
           end
 
           if options[:show_version]
-            $stderr.puts "Version: #{Jeweler::Version::STRING}"
+            $stderr.puts "Version: #{Jeweler::VERSION}"
             return 1
           end
 

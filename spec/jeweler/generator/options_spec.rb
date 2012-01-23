@@ -52,7 +52,6 @@ describe Jeweler::Generator::Options do
     end
   end
 
-
   it "should use bacon for testing" do
     options = Jeweler::Generator::Options.new(['project_name', '--bacon'])
     options[:testing_framework].should == :bacon
@@ -132,6 +131,18 @@ describe Jeweler::Generator::Options do
   for_options '--directory', 'foo' do
     it 'should have directory foo' do
       @options[:directory].should == 'foo'
+    end
+  end
+
+  for_options '--version' do
+    it 'shows version' do
+      @options[:show_version].should be_true
+    end
+  end
+
+  for_options '-v' do
+    it 'shows version' do
+      @options[:show_version].should be_true
     end
   end
 

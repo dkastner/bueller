@@ -1,6 +1,19 @@
 require 'spec_helper'
 
 describe Jeweler::Generator::Application do
+  context 'when options indicate version' do
+    let(:application) { App.run_application('-v') }
+
+    it 'exits with code 1' do
+      application.should == 1
+    end
+
+    it 'puts version information' do
+      application
+      App.stderr.should =~ /Version:/
+    end
+  end
+
   context "when options indicate help usage" do
     let(:application) { App.run_application('-h') }
 
