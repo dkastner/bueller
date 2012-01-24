@@ -157,6 +157,12 @@ Then /^'(.*)' contains( regex)? '(.*)'$/ do |file, regex, expected_string|
   contents.should =~ /#{pattern}/
 end
 
+Then /^'(.*)' does not contain( regex)? '(.*)'$/ do |file, regex, expected_string|
+  contents = File.read(File.join(@working_dir, @name, file))
+  pattern = regex ? expected_string : Regexp.escape(expected_string)
+  contents.should_not =~ /#{pattern}/
+end
+
 Then /^'(.*)' mentions copyright belonging to me in (\d{4})$/ do |file, year|
   step %Q{'#{file}' contains regex 'Copyright \\(c\\) #{year} #{@user_name}'}
 end
@@ -296,6 +302,10 @@ end
 
 Then /^the gemspec has development dependency '(.*)'$/ do |gem|
   step %Q{'the-perfect-gem.gemspec' contains 'add_development_dependency ["#{gem}"'}
+end
+
+Then /^the gemspec does not have development dependency '(.*)'$/ do |gem|
+  step %Q{'the-perfect-gem.gemspec' does not contain 'add_development_dependency ["#{gem}"'}
 end
 
 Then /^'(.*)' sets up bundler$/ do |file|
