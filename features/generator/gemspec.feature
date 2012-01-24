@@ -13,6 +13,7 @@ Feature: generated Rakefile
     And the gemspec has 'email' set to 'bar@example.com'
     And the gemspec has 'homepage' set to 'http://github.com/technicalpickles/the-perfect-gem'
     And the gemspec has 'licenses' set to 'MIT'
+    And the gemspec has development dependency 'rcov'
 
   Scenario: cucumber
     Given I want cucumber stories
