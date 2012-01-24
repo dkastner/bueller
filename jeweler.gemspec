@@ -38,10 +38,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'activesupport', '~> 2.3.5'
   s.add_development_dependency 'bluecloth'
   s.add_development_dependency 'cucumber', '~> 1.1.4'
+  s.add_development_dependency 'rdoc'
   s.add_development_dependency 'redgreen'
   s.add_development_dependency 'rspec', '~> 2.8.0'
   s.add_development_dependency 'sandbox'
   s.add_development_dependency 'timecop'
-  s.add_development_dependency 'yard', '~> 0.6.0'
+  s.add_development_dependency 'yard', '~> 0.6'
 end
 
