@@ -43,6 +43,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '~> 2.8.0'
   s.add_development_dependency 'sandbox'
   s.add_development_dependency 'timecop'
-  s.add_development_dependency 'yard', '~> 0.6'
+  s.add_development_dependency 'yard', '~> 0.7.4'
 end
 
