@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Jeweler::Generator::Options do
   before :each do
-    GitSupport.stub_config GitSupport.valid_config
+    Jeweler::Generator::Options.stub!(:git_config).and_return GitSupport.valid_config
   end
 
   def self.should_have_docmentation_framework(documentation_framework)

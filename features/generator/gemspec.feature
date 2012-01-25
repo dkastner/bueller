@@ -35,14 +35,14 @@ Feature: generated Rakefile
   Scenario: rdoc
     Given I want to use rdoc instead of yard
     When I generate a testunit project named 'the-perfect-gem' that is 'zomg, so good'
-    Then the gemspec has a development dependency 'rdoc'
-    And the gemspec does not have a development dependency 'yard'
+    Then the gemspec has development dependency 'rdoc'
+    And the gemspec does not have development dependency 'yard'
 
   Scenario: yard
     Given I want to use yard instead of rdoc
     When I generate a testunit project named 'the-perfect-gem' that is 'zomg, so good'
-    Then the gemspec has a development dependency 'yard'
-    Then the gemspec has a development dependency 'rdoc'
+    Then the gemspec has development dependency 'yard'
+    Then the gemspec has development dependency 'rdoc'
 
   Scenario: shindo
     When I generate a shindo project named 'the-perfect-gem' that is 'zomg, so good'
