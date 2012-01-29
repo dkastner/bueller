@@ -5,18 +5,18 @@ require 'git'
 #
 # See Jeweler::Tasks for examples of how to get started.
 class Jeweler
-  require 'bueller/errors'
+  require 'jeweler/errors'
   require 'rubygems/user_interaction'
 
-  autoload :Generator,      'bueller/generator'
+  autoload :Generator,      'jeweler/generator'
 
-  autoload :Commands,       'bueller/commands'
+  autoload :Commands,       'jeweler/commands'
   
-  autoload :VersionHelper,  'bueller/version_helper'
-  autoload :GemSpecHelper,  'bueller/gemspec_helper'
+  autoload :VersionHelper,  'jeweler/version_helper'
+  autoload :GemSpecHelper,  'jeweler/gemspec_helper'
 
-  autoload :Tasks,          'bueller/tasks'
-  autoload :RubyforgeTasks, 'bueller/rubyforge_tasks'
+  autoload :Tasks,          'jeweler/tasks'
+  autoload :RubyforgeTasks, 'jeweler/rubyforge_tasks'
 
   attr_accessor :base_dir, :output, :repo, :gemspec_helper, :version_helper, :commit
 

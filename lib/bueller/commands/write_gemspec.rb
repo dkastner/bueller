@@ -3,12 +3,12 @@ class Jeweler
     class WriteGemspec
       attr_accessor :base_dir, :output, :gemspec_helper, :version_helper
 
-      def initialize(bueller)
+      def initialize(jeweler)
         self.output = $stdout
-        self.base_dir = bueller.base_dir
-        self.output = bueller.output
-        self.gemspec_helper = bueller.gemspec_helper
-        self.version_helper = bueller.version_helper
+        self.base_dir = jeweler.base_dir
+        self.output = jeweler.output
+        self.gemspec_helper = jeweler.gemspec_helper
+        self.version_helper = jeweler.version_helper
       end
 
       def run
@@ -18,8 +18,8 @@ class Jeweler
         output.puts "Generated: #{gemspec_helper.path}"  
       end
 
-      def self.run_for(bueller)
-        command = new(bueller)
+      def self.run_for(jeweler)
+        command = new(jeweler)
         command.run
         command
       end

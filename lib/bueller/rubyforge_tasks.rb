@@ -15,16 +15,16 @@ class Jeweler
   #  * project: the rubyforge project to operate on. This defaults to whatever you specified in your gemspec. Defaults to your gem name.
   #  * remote_doc_path: the place to upload docs to on Rubyforge under /var/www/gforge-projects/#{project}/
   #
-  # See also http://wiki.github.com/technicalpickles/bueller/rubyforge
+  # See also http://wiki.github.com/technicalpickles/jeweler/rubyforge
   class RubyforgeTasks < ::Rake::TaskLib
-    # The RubyForge project to interact with. Defaults to whatever is in your bueller gemspec.
+    # The RubyForge project to interact with. Defaults to whatever is in your jeweler gemspec.
     attr_accessor :project
     # The path to upload docs to. It is relative to /var/www/gforge-projects/#{project}/, and defaults to your gemspec's name
     attr_accessor :remote_doc_path
     # Task to be used for generating documentation, before they are uploaded. Defaults to rdoc.
     attr_accessor :doc_task
 
-    attr_accessor :bueller
+    attr_accessor :jeweler
 
     def initialize
       yield self if block_given?
@@ -32,16 +32,16 @@ class Jeweler
       define
     end
 
-    def bueller
-      @bueller ||= Rake.application.bueller
+    def jeweler
+      @jeweler ||= Rake.application.jeweler
     end
 
     def remote_doc_path
-      @remote_doc_path ||= bueller.gemspec.name
+      @remote_doc_path ||= jeweler.gemspec.name
     end
 
     def project
-      @project ||= bueller.gemspec.rubyforge_project
+      @project ||= jeweler.gemspec.rubyforge_project
     end
 
     def define

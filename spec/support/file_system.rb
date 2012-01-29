@@ -2,7 +2,7 @@ module FileSystem
   extend self
 
   def tmp_dir
-    '/tmp/bueller_test'
+    '/tmp/jeweler_test'
   end
 
   def fixture_path(fixture = nil)

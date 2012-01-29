@@ -4,23 +4,23 @@ class Jeweler
   module Commands
     module Version
       class Base
-        def self.run_for(bueller)
-          command = new bueller
+        def self.run_for(jeweler)
+          command = new jeweler
           command.run
           command
         end
 
         attr_accessor :version_helper, :gemspec
-        attr_reader :bueller
+        attr_reader :jeweler
 
-        def initialize(bueller)
-          @bueller = bueller
+        def initialize(jeweler)
+          @jeweler = jeweler
         end
 
-        def version_helper; bueller.version_helper; end
-        def gemspec_helper; bueller.gemspec_helper; end
-        def repo; bueller.repo; end
-        def commit; bueller.commit; end
+        def version_helper; jeweler.version_helper; end
+        def gemspec_helper; jeweler.gemspec_helper; end
+        def repo; jeweler.repo; end
+        def commit; jeweler.commit; end
 
         def run
           update_version

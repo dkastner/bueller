@@ -22,25 +22,25 @@ class Jeweler
   class GitInitFailed < StandardError
   end    
 
-  # Generator for creating a bueller-enabled project
+  # Generator for creating a jeweler-enabled project
   class Generator    
-    require 'bueller/generator/options'
-    require 'bueller/generator/application'
+    require 'jeweler/generator/options'
+    require 'jeweler/generator/application'
 
-    require 'bueller/generator/github_mixin'
+    require 'jeweler/generator/github_mixin'
 
-    require 'bueller/generator/bacon_mixin'
-    require 'bueller/generator/micronaut_mixin'
-    require 'bueller/generator/minitest_mixin'
-    require 'bueller/generator/rspec_mixin'
-    require 'bueller/generator/shoulda_mixin'
-    require 'bueller/generator/testspec_mixin'
-    require 'bueller/generator/testunit_mixin'
-    require 'bueller/generator/riot_mixin'
-    require 'bueller/generator/shindo_mixin'
+    require 'jeweler/generator/bacon_mixin'
+    require 'jeweler/generator/micronaut_mixin'
+    require 'jeweler/generator/minitest_mixin'
+    require 'jeweler/generator/rspec_mixin'
+    require 'jeweler/generator/shoulda_mixin'
+    require 'jeweler/generator/testspec_mixin'
+    require 'jeweler/generator/testunit_mixin'
+    require 'jeweler/generator/riot_mixin'
+    require 'jeweler/generator/shindo_mixin'
 
-    require 'bueller/generator/rdoc_mixin'
-    require 'bueller/generator/yard_mixin'
+    require 'jeweler/generator/rdoc_mixin'
+    require 'jeweler/generator/yard_mixin'
 
     attr_accessor :target_dir, :user_name, :user_email, :summary, :homepage,
                   :description, :project_name, :github_username, :github_token,
@@ -103,7 +103,7 @@ class Jeweler
       development_dependencies << 'cucumber' if use_cucumber?
 
       development_dependencies << 'bundler'
-      development_dependencies << 'bueller'
+      development_dependencies << 'jeweler'
       development_dependencies << 'rake'
       development_dependencies << 'rcov'
 

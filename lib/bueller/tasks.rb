@@ -1,13 +1,13 @@
 require 'rake/tasklib'
 
 class Rake::Application
-  attr_accessor :bueller_tasks
+  attr_accessor :jeweler_tasks
 
-  # The bueller instance that has be instantiated in the current Rakefile.
+  # The jeweler instance that has be instantiated in the current Rakefile.
   #
   # This is usually useful if you want to get at info like version from other files.
-  def bueller
-    bueller_tasks.bueller
+  def jeweler
+    jeweler_tasks.jeweler
   end
 end
 
@@ -18,15 +18,15 @@ class Jeweler
   #
   #   Jeweler::Tasks.new
   class Tasks < ::Rake::TaskLib
-    attr_accessor :bueller
+    attr_accessor :jeweler
 
     def initialize
-      Rake.application.bueller_tasks = self
+      Rake.application.jeweler_tasks = self
       define
     end
 
-    def bueller
-      @bueller ||= Jeweler.new
+    def jeweler
+      @jeweler ||= Jeweler.new
     end
 
   private
@@ -35,41 +35,41 @@ class Jeweler
       gem_helper = Bundler::GemHelper.install_tasks
 
       task :gemspec_required do
-        unless File.exist?(bueller.gemspec_helper.path)
-          abort "Expected #{bueller.gemspec_helper.path} to exist. See 'rake gemspec:write' to create it"
+        unless File.exist?(jeweler.gemspec_helper.path)
+          abort "Expected #{jeweler.gemspec_helper.path} to exist. See 'rake gemspec:write' to create it"
         end
       end
 
       desc "Displays the current version"
       task :version do
-        $stdout.puts "Current version: #{bueller.version}"
+        $stdout.puts "Current version: #{jeweler.version}"
       end
 
       namespace :version do
         desc "Writes out an explicit version. Respects the following environment variables, or defaults to 0: MAJOR, MINOR, PATCH. Also recognizes BUILD, which defaults to nil"
         task :write do
           major, minor, patch, build = ENV['MAJOR'].to_i, ENV['MINOR'].to_i, ENV['PATCH'].to_i, (ENV['BUILD'] || nil )
-          bueller.write_version(major, minor, patch, build)
-          $stdout.puts "Updated version: #{bueller.version}"
+          jeweler.write_version(major, minor, patch, build)
+          $stdout.puts "Updated version: #{jeweler.version}"
         end
 
         namespace :bump do
           desc "Bump the gemspec by a major version."
           task :major => :version do
-            bueller.bump_major_version
-            $stdout.puts "Updated version: #{bueller.version}"
+            jeweler.bump_major_version
+            $stdout.puts "Updated version: #{jeweler.version}"
           end
 
           desc "Bump the gemspec by a minor version."
           task :minor => :version do
-            bueller.bump_minor_version
-            $stdout.puts "Updated version: #{bueller.version}"
+            jeweler.bump_minor_version
+            $stdout.puts "Updated version: #{jeweler.version}"
           end
 
           desc "Bump the gemspec by a patch version."
           task :patch => :version do
-            bueller.bump_patch_version
-            $stdout.puts "Updated version: #{bueller.version}"
+            jeweler.bump_patch_version
+            $stdout.puts "Updated version: #{jeweler.version}"
           end
         end
       end

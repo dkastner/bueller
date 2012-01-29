@@ -7,15 +7,15 @@ After do
   @sandbox.close if @sandbox
 end
 
-Given /^I use the bueller command to generate the "([^"]+)" project in the working directory$/ do |name|
+Given /^I use the jeweler command to generate the "([^"]+)" project in the working directory$/ do |name|
   @name = name
 
   return_to = Dir.pwd
-  path_to_bueller = File.expand_path File.join(File.dirname(__FILE__), '..', '..', 'bin', 'bueller')
+  path_to_jeweler = File.expand_path File.join(File.dirname(__FILE__), '..', '..', 'bin', 'jeweler')
 
   begin
     FileUtils.cd @working_dir
-    @stdout = `#{path_to_bueller} #{@name}`
+    @stdout = `#{path_to_jeweler} #{@name}`
   ensure
     FileUtils.cd return_to
   end

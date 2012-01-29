@@ -19,7 +19,7 @@ describe Jeweler::GemSpecHelper do
   describe '#path' do
     it 'should return the path to the gemspec' do
       Dir.stub!(:glob).and_return [File.join(File.dirname(__FILE__), 'test.gemspec')]
-      helper.path.should == "spec/bueller/test.gemspec"
+      helper.path.should == "spec/jeweler/test.gemspec"
     end
   end
 end

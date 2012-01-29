@@ -2,8 +2,8 @@ class Jeweler
   module Commands
     module Version
       class Write < Base
-        def self.run_for(bueller, major, minor, patch, build)
-          command = new bueller
+        def self.run_for(jeweler, major, minor, patch, build)
+          command = new jeweler
           command.major = major
           command.minor = minor
           command.patch = patch

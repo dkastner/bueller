@@ -4,7 +4,7 @@ module Gemspec
       s.name = "bar"
       s.summary = "Simple and opinionated helper for creating Rubygem projects on GitHub"
       s.email = "josh@technicalpickles.com"
-      s.homepage = "http://github.com/technicalpickles/bueller"
+      s.homepage = "http://github.com/technicalpickles/jeweler"
       s.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
       s.authors = ["Josh Nichols"]
       s.files = FileList[*files] unless files.empty?
