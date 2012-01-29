@@ -15,6 +15,6 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-<%= render_template 'bueller_tasks.erb' %>
+<%= render_template 'jeweler_tasks.erb' %>
 
 <%= render_template 'other_tasks.erb' %>

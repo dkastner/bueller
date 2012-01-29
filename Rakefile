@@ -1,12 +1,12 @@
 require 'bundler'
 Bundler.setup
 
-require 'bueller'
-Bueller::Tasks.new
+require 'jeweler'
+Jeweler::Tasks.new
 
 require 'yard'
 YARD::Rake::YardocTask.new(:yardoc) do |t|
-  t.files   = FileList['lib/**/*.rb'].exclude('lib/bueller/templates/**/*.rb')
+  t.files   = FileList['lib/**/*.rb'].exclude('lib/jeweler/templates/**/*.rb')
 end
 
 require 'rspec/core/rake_task'
