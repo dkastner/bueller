@@ -1,4 +1,4 @@
-class Bueller
+class Jeweler
   class GemSpecHelper
     class VersionMissing < StandardError; end
     class NoGemspecFound < StandardError; end

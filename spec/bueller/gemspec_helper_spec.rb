@@ -1,9 +1,9 @@
 require 'spec_helper'
 require 'time'
 
-describe Bueller::GemSpecHelper do
+describe Jeweler::GemSpecHelper do
   let(:spec) { Gemspec.build }
-  let(:helper) { Bueller::GemSpecHelper.new('.') }
+  let(:helper) { Jeweler::GemSpecHelper.new('.') }
 
   describe "#write" do
     it 'should include updates made to the gemspec' do

@@ -1,14 +1,14 @@
 require 'rake'
 require 'rake/tasklib'
 
-class Bueller
-  # (Mostly deprecated) Rake tasks for putting a Bueller gem on Rubyforge.
+class Jeweler
+  # (Mostly deprecated) Rake tasks for putting a Jeweler gem on Rubyforge.
   #
-  # Bueller::Tasks.new needs to be used before this.
+  # Jeweler::Tasks.new needs to be used before this.
   #
   # Basic usage:
   #
-  #     Bueller::RubyforgeTasks.new
+  #     Jeweler::RubyforgeTasks.new
   #
   # There are a few options you can tweak:
   #

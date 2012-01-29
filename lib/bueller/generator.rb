@@ -6,7 +6,7 @@ require 'uri'
 
 require 'fileutils'
 
-class Bueller
+class Jeweler
   class NoGitUserName < StandardError
   end
   class NoGitUserEmail < StandardError
@@ -125,10 +125,10 @@ class Bueller
     def run
       create_files
       create_version_control
-      $stdout.puts "Bueller has prepared your gem in #{target_dir}"
+      $stdout.puts "Jeweler has prepared your gem in #{target_dir}"
       if create_remote_repo?
         create_and_push_repo
-        $stdout.puts "Bueller has pushed your repo to #{homepage}"
+        $stdout.puts "Jeweler has pushed your repo to #{homepage}"
       end
     end
 

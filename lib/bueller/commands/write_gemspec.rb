@@ -1,4 +1,4 @@
-class Bueller
+class Jeweler
   module Commands
     class WriteGemspec
       attr_accessor :base_dir, :output, :gemspec_helper, :version_helper

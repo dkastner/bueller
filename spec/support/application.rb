@@ -11,7 +11,7 @@ module App
 
     result = nil
     begin
-      result = Bueller::Generator::Application.run!(*arguments)
+      result = Jeweler::Generator::Application.run!(*arguments)
     ensure
       $stdout = original_stdout
       $stderr = original_stderr

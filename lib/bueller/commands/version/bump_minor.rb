@@ -1,4 +1,4 @@
-class Bueller
+class Jeweler
   module Commands
     module Version
       class BumpMinor < Base

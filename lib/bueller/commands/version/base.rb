@@ -1,6 +1,6 @@
 require 'pathname'
 
-class Bueller
+class Jeweler
   module Commands
     module Version
       class Base

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bueller::Generator do
+describe Jeweler::Generator do
   let(:options) do
     { :project_name => 'the-perfect-gem',
                             :user_name => 'John Doe',
@@ -10,7 +10,7 @@ describe Bueller::Generator do
                             :documentation_framework => :rdoc,
                             :testing_framework => :rspec }
   end
-  let(:generator) { Bueller::Generator.new options }
+  let(:generator) { Jeweler::Generator.new options }
 
   describe '#initialize' do
     context "given a nil github repo name" do
@@ -20,8 +20,8 @@ describe Bueller::Generator do
 
       it 'should raise NoGithubRepoNameGiven' do
         pending "don't be so picky"
-        assert_raise Bueller::NoGitHubRepoNameGiven do
-          Bueller::Generator.new()
+        assert_raise Jeweler::NoGitHubRepoNameGiven do
+          Jeweler::Generator.new()
         end
       end
     end
@@ -33,8 +33,8 @@ describe Bueller::Generator do
 
       it 'should raise an NoGitUserName' do
         pending "don't be so picky"
-        assert_raise Bueller::NoGitUserName do
-          Bueller::Generator.new(:project_name => @project_name, :testing_framework => :shoulda, :documentation_framework => :rdoc)
+        assert_raise Jeweler::NoGitUserName do
+          Jeweler::Generator.new(:project_name => @project_name, :testing_framework => :shoulda, :documentation_framework => :rdoc)
         end
       end
     end
@@ -46,8 +46,8 @@ describe Bueller::Generator do
 
       it 'should raise NoGitUserEmail' do
         pending "don't be so picky"
-        assert_raise Bueller::NoGitUserEmail do
-          Bueller::Generator.new(:project_name => @project_name, :user_name => GitSupport.name, :testing_framework => :shoulda, :documentation_framework => :rdoc)
+        assert_raise Jeweler::NoGitUserEmail do
+          Jeweler::Generator.new(:project_name => @project_name, :user_name => GitSupport.name, :testing_framework => :shoulda, :documentation_framework => :rdoc)
         end
       end
     end
@@ -59,8 +59,8 @@ describe Bueller::Generator do
 
       it 'should raise NotGitHubUser' do
         pending "don't be so picky"
-        assert_raise Bueller::NoGitHubUser do
-          Bueller::Generator.new(:project_name => @project_name, :user_name => GitSupport.name, :user_email => GitSupport.email, :testing_framework => :shoulda, :documentation_framework => :rdoc)
+        assert_raise Jeweler::NoGitHubUser do
+          Jeweler::Generator.new(:project_name => @project_name, :user_name => GitSupport.name, :user_email => GitSupport.email, :testing_framework => :shoulda, :documentation_framework => :rdoc)
         end
       end
     end
@@ -72,8 +72,8 @@ describe Bueller::Generator do
 
       it 'should raise NoGitHubToken if creating repo' do
         pending "don't be so picky"
-        assert_raise Bueller::NoGitHubToken do
-          Bueller::Generator.new(:project_name => @project_name, :user_name => GitSupport.name, :user_email => GitSupport.email, :github_username => @github_user, :create_repo => true, :testing_framework => :shoulda, :documentation_framework => :rdoc)
+        assert_raise Jeweler::NoGitHubToken do
+          Jeweler::Generator.new(:project_name => @project_name, :user_name => GitSupport.name, :user_email => GitSupport.email, :github_username => @github_user, :create_repo => true, :testing_framework => :shoulda, :documentation_framework => :rdoc)
         end
       end
     end
@@ -88,7 +88,7 @@ describe Bueller::Generator do
                    :documentation_framework => :rdoc }
 
     end
-    let(:generator) { Bueller::Generator.new(defaults) }
+    let(:generator) { Jeweler::Generator.new(defaults) }
 
     context "default configuration" do
       before :each do
@@ -141,7 +141,7 @@ describe Bueller::Generator do
     end
 
     context "using yard" do
-      let(:generator) { Bueller::Generator.new(defaults.merge :documentation_framework => :yard) }
+      let(:generator) { Jeweler::Generator.new(defaults.merge :documentation_framework => :yard) }
 
       it "should set the doc_task to yardoc" do
         generator.doc_task.should == "yardoc"
@@ -150,7 +150,7 @@ describe Bueller::Generator do
     end
 
     context "using rdoc" do
-      let(:generator) { Bueller::Generator.new(defaults.merge :documentation_framework => :rdoc) }
+      let(:generator) { Jeweler::Generator.new(defaults.merge :documentation_framework => :rdoc) }
 
       it "should set the doc_task to rdoc" do
         generator.doc_task.should == "rdoc"
@@ -158,7 +158,7 @@ describe Bueller::Generator do
     end
 
     context "using a custom homepage" do
-      let(:generator) { Bueller::Generator.new(defaults.merge :homepage => 'http://zomg.com') }
+      let(:generator) { Jeweler::Generator.new(defaults.merge :homepage => 'http://zomg.com') }
 
       it "should set the homepage" do
         generator.homepage.should == "http://zomg.com"
@@ -189,7 +189,7 @@ describe Bueller::Generator do
   end
 
   it 'should set up a project using shoulda' do
-    generator = Bueller::Generator.new options.merge(:testing_framework => :shoulda) 
+    generator = Jeweler::Generator.new options.merge(:testing_framework => :shoulda) 
     generator.test_task.should == 'test'
     generator.test_dir.should == 'test'
     generator.default_task.should == 'test'
@@ -201,7 +201,7 @@ describe Bueller::Generator do
   end
 
   it 'should create a project using testunit' do
-    generator = Bueller::Generator.new options.merge(:testing_framework => :testunit) 
+    generator = Jeweler::Generator.new options.merge(:testing_framework => :testunit) 
     generator.test_task.should == 'test'
     generator.test_dir.should == 'test'
     generator.default_task.should == 'test'
@@ -213,7 +213,7 @@ describe Bueller::Generator do
   end
 
   it 'should create a project using minitest' do
-    generator = Bueller::Generator.new options.merge(:testing_framework => :minitest) 
+    generator = Jeweler::Generator.new options.merge(:testing_framework => :minitest) 
     generator.test_task.should == 'test'
     generator.test_dir.should == 'test'
     generator.default_task.should == 'test'
@@ -225,7 +225,7 @@ describe Bueller::Generator do
   end
 
   it 'should create a project using bacon' do
-    generator = Bueller::Generator.new options.merge(:testing_framework => :bacon) 
+    generator = Jeweler::Generator.new options.merge(:testing_framework => :bacon) 
     generator.test_task.should == 'spec'
     generator.test_dir.should == 'spec'
     generator.default_task.should == 'spec'
@@ -237,7 +237,7 @@ describe Bueller::Generator do
   end
 
   it 'should create a project using rspec' do
-    generator = Bueller::Generator.new options.merge(:testing_framework => :rspec) 
+    generator = Jeweler::Generator.new options.merge(:testing_framework => :rspec) 
     generator.test_task.should == 'examples'
     generator.test_dir.should == 'spec'
     generator.default_task.should == 'examples'
@@ -249,7 +249,7 @@ describe Bueller::Generator do
   end
 
   it 'should create a project using micronaut' do
-    generator = Bueller::Generator.new options.merge(:testing_framework => :micronaut) 
+    generator = Jeweler::Generator.new options.merge(:testing_framework => :micronaut) 
     generator.test_task.should == 'examples'
     generator.test_dir.should == 'examples'
     generator.default_task.should == 'examples'
@@ -261,7 +261,7 @@ describe Bueller::Generator do
   end
   
   it 'should create a project using testspec' do
-    generator = Bueller::Generator.new options.merge(:testing_framework => :testspec) 
+    generator = Jeweler::Generator.new options.merge(:testing_framework => :testspec) 
     generator.test_task.should == 'test'
     generator.test_dir.should == 'test'
     generator.default_task.should == 'test'

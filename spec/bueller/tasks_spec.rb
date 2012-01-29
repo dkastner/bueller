@@ -1,10 +1,10 @@
 require 'spec_helper'
 require 'rake'
 
-describe Bueller::Tasks do
+describe Jeweler::Tasks do
   let(:tasks) do
     Dir.chdir(File.expand_path('../fixtures/bar', File.dirname(__FILE__))) do
-      Bueller::Tasks.new
+      Jeweler::Tasks.new
     end
   end
 
@@ -13,7 +13,7 @@ describe Bueller::Tasks do
   end
 
   describe '#initialize' do
-    it 'should not eagerly initialize Bueller' do
+    it 'should not eagerly initialize Jeweler' do
       tasks.instance_variable_defined?(:@bueller).should be_false
     end
     it 'should set self as the application-wide bueller tasks' do
@@ -21,7 +21,7 @@ describe Bueller::Tasks do
     end
   end
   describe '#bueller' do
-    it 'should initailize Bueller' do
+    it 'should initailize Jeweler' do
       tasks.bueller
       tasks.instance_variable_defined?(:@bueller).should be_true
     end

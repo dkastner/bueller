@@ -1,4 +1,4 @@
-class Bueller
+class Jeweler
   module Commands
     autoload :WriteGemspec, 'bueller/commands/write_gemspec'
 

@@ -1,4 +1,4 @@
-class Bueller
+class Jeweler
   class Generator
     module RiotMixin
       def self.extended(generator)

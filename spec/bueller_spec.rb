@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Bueller do
-  let(:bueller_with_git) { Bueller.new(git_dir_path) }
-  let(:bueller_without_git) { Bueller.new(non_git_dir_path) }
-  let(:bueller) { Bueller.new(git_dir_path) }
+describe Jeweler do
+  let(:bueller_with_git) { Jeweler.new(git_dir_path) }
+  let(:bueller_without_git) { Jeweler.new(non_git_dir_path) }
+  let(:bueller) { Jeweler.new(git_dir_path) }
   let(:git_dir_path) { File.join(FileSystem.tmp_dir, 'git') }
   let(:non_git_dir_path) { File.join(FileSystem.tmp_dir, 'nongit') }
 
@@ -23,14 +23,14 @@ describe Bueller do
 
   describe '#git_base_dir' do
     it 'should find the base repo' do
-      bueller = Bueller.new(File.dirname(File.expand_path(__FILE__)))
+      bueller = Jeweler.new(File.dirname(File.expand_path(__FILE__)))
       bueller.git_base_dir.should == File.dirname(File.dirname(File.expand_path(__FILE__)))
     end
   end
 
   describe '#write_gemspec' do
     it 'should build and run write gemspec command when writing gemspec' do
-      Bueller::Commands::WriteGemspec.should_receive(:run_for).with(bueller)
+      Jeweler::Commands::WriteGemspec.should_receive(:run_for).with(bueller)
 
       bueller.write_gemspec
     end
@@ -38,7 +38,7 @@ describe Bueller do
 
   describe '#bump_major_version' do
     it 'should build and run bump major version command when bumping major version' do
-      Bueller::Commands::Version::BumpMajor.should_receive(:run_for).with(bueller)
+      Jeweler::Commands::Version::BumpMajor.should_receive(:run_for).with(bueller)
 
       bueller.bump_major_version
     end
@@ -46,7 +46,7 @@ describe Bueller do
 
   describe '#bump_major_version' do
     it 'should build and run bump minor version command when bumping minor version' do
-      Bueller::Commands::Version::BumpMinor.should_receive(:run_for).with(bueller)
+      Jeweler::Commands::Version::BumpMinor.should_receive(:run_for).with(bueller)
 
       bueller.bump_minor_version
     end
@@ -54,7 +54,7 @@ describe Bueller do
 
   describe '#bump_major_version' do
     it 'should build and run write version command when writing version' do
-      Bueller::Commands::Version::Write.should_receive(:run_for).with(bueller, 1, 5, 2, 'a1')
+      Jeweler::Commands::Version::Write.should_receive(:run_for).with(bueller, 1, 5, 2, 'a1')
 
       bueller.write_version(1, 5, 2, 'a1')
     end

@@ -11,12 +11,12 @@ class Rake::Application
   end
 end
 
-class Bueller
+class Jeweler
   # Rake tasks for managing your gem.
   #
   # Here's a basic example of using it:
   #
-  #   Bueller::Tasks.new
+  #   Jeweler::Tasks.new
   class Tasks < ::Rake::TaskLib
     attr_accessor :bueller
 
@@ -26,7 +26,7 @@ class Bueller
     end
 
     def bueller
-      @bueller ||= Bueller.new
+      @bueller ||= Jeweler.new
     end
 
   private

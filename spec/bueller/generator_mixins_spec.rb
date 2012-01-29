@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 # FIXME: use example groups/it_should_behave_like instead
-describe 'Bueller::Generator Mixins' do
-  [Bueller::Generator::BaconMixin,
-   Bueller::Generator::MicronautMixin,
-   Bueller::Generator::MinitestMixin,
-   Bueller::Generator::RspecMixin,
-   Bueller::Generator::ShouldaMixin,
-   Bueller::Generator::TestspecMixin,
-   Bueller::Generator::TestunitMixin,
+describe 'Jeweler::Generator Mixins' do
+  [Jeweler::Generator::BaconMixin,
+   Jeweler::Generator::MicronautMixin,
+   Jeweler::Generator::MinitestMixin,
+   Jeweler::Generator::RspecMixin,
+   Jeweler::Generator::ShouldaMixin,
+   Jeweler::Generator::TestspecMixin,
+   Jeweler::Generator::TestunitMixin,
   ].each do |mixin|
     describe "#{mixin}" do
       %w(default_task feature_support_require feature_support_extend

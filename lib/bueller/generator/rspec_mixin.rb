@@ -1,4 +1,4 @@
-class Bueller
+class Jeweler
   class Generator
     module RspecMixin
       def self.extended(generator)

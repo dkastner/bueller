@@ -1,3 +1,3 @@
-class Bueller
+class Jeweler
   VERSION = "0.0.6"
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bueller::Generator::Options do
+describe Jeweler::Generator::Options do
   before :each do
     GitSupport.stub_config GitSupport.valid_config
   end
@@ -12,7 +12,7 @@ describe Bueller::Generator::Options do
   end
 
   def setup_options(*arguments)
-    @options = Bueller::Generator::Options.new(["project_name"] + arguments)
+    @options = Jeweler::Generator::Options.new(["project_name"] + arguments)
   end
 
   def self.for_options(*options)
@@ -23,7 +23,7 @@ describe Bueller::Generator::Options do
     should_have_docmentation_framework :rdoc
 
     it "should use shoulda for testing" do
-      options = Bueller::Generator::Options.new(['project_name', '--shoulda'])
+      options = Jeweler::Generator::Options.new(['project_name', '--shoulda'])
       options[:testing_framework].should == :shoulda
     end
 
@@ -54,52 +54,52 @@ describe Bueller::Generator::Options do
 
 
   it "should use bacon for testing" do
-    options = Bueller::Generator::Options.new(['project_name', '--bacon'])
+    options = Jeweler::Generator::Options.new(['project_name', '--bacon'])
     options[:testing_framework].should == :bacon
   end
 
   it "should use micronaut for testing" do
-    options = Bueller::Generator::Options.new(['project_name', '--micronaut'])
+    options = Jeweler::Generator::Options.new(['project_name', '--micronaut'])
     options[:testing_framework].should == :micronaut
   end
 
   it "should use minitest for testing" do
-    options = Bueller::Generator::Options.new(['project_name', '--minitest'])
+    options = Jeweler::Generator::Options.new(['project_name', '--minitest'])
     options[:testing_framework].should == :minitest
   end
 
   it "should use rspec for testing" do
-    options = Bueller::Generator::Options.new(['project_name', '--rspec'])
+    options = Jeweler::Generator::Options.new(['project_name', '--rspec'])
     options[:testing_framework].should == :rspec
   end
 
   it "should use shoulda for testing" do
-    options = Bueller::Generator::Options.new(['project_name', '--shoulda'])
+    options = Jeweler::Generator::Options.new(['project_name', '--shoulda'])
     options[:testing_framework].should == :shoulda
   end
 
   it "should use testunit for testing" do
-    options = Bueller::Generator::Options.new(['project_name', '--testunit'])
+    options = Jeweler::Generator::Options.new(['project_name', '--testunit'])
     options[:testing_framework].should == :testunit
   end
 
   it "should use testspec for testing" do
-    options = Bueller::Generator::Options.new(['project_name', '--testspec'])
+    options = Jeweler::Generator::Options.new(['project_name', '--testspec'])
     options[:testing_framework].should == :testspec
   end
 
   it "should use cucumber for testing" do
-    options = Bueller::Generator::Options.new(['project_name', '--cucumber'])
+    options = Jeweler::Generator::Options.new(['project_name', '--cucumber'])
     options[:use_cucumber].should be_true
   end
 
   it "should use reek" do
-    options = Bueller::Generator::Options.new(['project_name', '--reek'])
+    options = Jeweler::Generator::Options.new(['project_name', '--reek'])
     options[:use_reek].should be_true
   end
 
   it "should use roodi" do
-    options = Bueller::Generator::Options.new(['project_name', '--roodi'])
+    options = Jeweler::Generator::Options.new(['project_name', '--roodi'])
     options[:use_roodi].should be_true
   end
 
@@ -191,15 +191,15 @@ describe Bueller::Generator::Options do
 
   context "merging options" do
     it "should take options from each" do
-      options = Bueller::Generator::Options.new(["--rspec"]).
-        merge Bueller::Generator::Options.new(["--create-repo"])
+      options = Jeweler::Generator::Options.new(["--rspec"]).
+        merge Jeweler::Generator::Options.new(["--create-repo"])
       options[:testing_framework].should == :rspec
       options[:create_repo].should_not be_nil
     end
 
     it "should shadow options" do
-      options = Bueller::Generator::Options.new(["--bacon"]).
-        merge Bueller::Generator::Options.new(["--rspec"])
+      options = Jeweler::Generator::Options.new(["--bacon"]).
+        merge Jeweler::Generator::Options.new(["--rspec"])
       options[:testing_framework].should == :rspec
     end
   end

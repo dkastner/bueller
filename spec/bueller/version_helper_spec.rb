@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Bueller::VersionHelper do
+describe Jeweler::VersionHelper do
 
-  let(:gemspec_helper) { mock Bueller::GemSpecHelper, :has_version? => true, :base_dir => '/path/to/gem', :project_name => 'mygem' }
-  let(:helper) { Bueller::VersionHelper.new gemspec_helper }
+  let(:gemspec_helper) { mock Jeweler::GemSpecHelper, :has_version? => true, :base_dir => '/path/to/gem', :project_name => 'mygem' }
+  let(:helper) { Jeweler::VersionHelper.new gemspec_helper }
 
   describe "full version" do
     before do

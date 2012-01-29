@@ -1,10 +1,10 @@
 require 'date'
 require 'git'
 
-# Bueller helps you craft the perfect Rubygem. Give him a gemspec, and he takes care of the rest.
+# Jeweler helps you craft the perfect Rubygem. Give him a gemspec, and he takes care of the rest.
 #
-# See Bueller::Tasks for examples of how to get started.
-class Bueller
+# See Jeweler::Tasks for examples of how to get started.
+class Jeweler
   require 'bueller/errors'
   require 'rubygems/user_interaction'
 
@@ -29,7 +29,7 @@ class Bueller
   end
 
   def version_helper
-    @version_helper ||= Bueller::VersionHelper.new gemspec_helper
+    @version_helper ||= Jeweler::VersionHelper.new gemspec_helper
   end
 
   def repo
@@ -69,33 +69,33 @@ class Bueller
 
   # Writes out the gemspec
   def write_gemspec
-    Bueller::Commands::WriteGemspec.run_for self
+    Jeweler::Commands::WriteGemspec.run_for self
   end
 
   # Bumps the patch version.
   #
   # 1.5.1 -> 1.5.2
   def bump_patch_version
-    Bueller::Commands::Version::BumpPatch.run_for self
+    Jeweler::Commands::Version::BumpPatch.run_for self
   end
 
   # Bumps the minor version.
   #
   # 1.5.1 -> 1.6.0
   def bump_minor_version
-    Bueller::Commands::Version::BumpMinor.run_for self
+    Jeweler::Commands::Version::BumpMinor.run_for self
   end
 
   # Bumps the major version.
   #
   # 1.5.1 -> 2.0.0
   def bump_major_version
-    Bueller::Commands::Version::BumpMajor.run_for self
+    Jeweler::Commands::Version::BumpMajor.run_for self
   end
 
   # Bumps the version, to the specific major/minor/patch version, writing out the appropriate version.rb, and then reloads it.
   def write_version(major, minor, patch, build)
-    Bueller::Commands::Version::Write.run_for self, major, minor, patch, build
+    Jeweler::Commands::Version::Write.run_for self, major, minor, patch, build
   end
 
   def git_base_dir(base_dir = nil)

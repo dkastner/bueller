@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Bueller::Generator::Application do
+describe Jeweler::Generator::Application do
   before :each do
 #    opts = {}
 #    opts.stub!(:opts).and_return({})
-#    Bueller::Generator::Options.stub!(:new).and_return(opts)
+#    Jeweler::Generator::Options.stub!(:new).and_return(opts)
   end
 
   context "when options indicate help usage" do
@@ -51,7 +51,7 @@ describe Bueller::Generator::Application do
     let(:application) { App.run_application 'foo' }
 
     before :each do
-      Bueller::Generator.stub!(:run)
+      Jeweler::Generator.stub!(:run)
     end
 
     it "should exit with code 1" do
@@ -59,7 +59,7 @@ describe Bueller::Generator::Application do
     end
 
     it "should run generator" do
-      Bueller::Generator.should_receive :run
+      Jeweler::Generator.should_receive :run
       application
     end
   end

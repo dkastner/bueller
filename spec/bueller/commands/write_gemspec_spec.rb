@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Bueller::Commands::WriteGemspec do
-  let(:bueller) { Bueller.new FileSystem.fixture_path('existing-project') }
-  let(:command) { Bueller::Commands::WriteGemspec.new(bueller) }
+describe Jeweler::Commands::WriteGemspec do
+  let(:bueller) { Jeweler.new FileSystem.fixture_path('existing-project') }
+  let(:command) { Jeweler::Commands::WriteGemspec.new(bueller) }
   let(:now) { Time.now }
 
   context "after run" do

@@ -1,6 +1,6 @@
 require 'yaml'
 
-class Bueller
+class Jeweler
   class VersionHelper
     class VersionMissing < StandardError; end
     class MalformattedVersion < StandardError; end
