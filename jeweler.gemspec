@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'bluecloth'
   s.add_development_dependency 'cucumber'
   s.add_development_dependency 'redgreen'
-  s.add_development_dependency 'rspec', '~> 2.0.0'
+  s.add_development_dependency 'rspec', '~> 2.8.0'
   s.add_development_dependency 'sandbox'
   s.add_development_dependency 'timecop'
   s.add_development_dependency 'yard', '~> 0.6.0'
