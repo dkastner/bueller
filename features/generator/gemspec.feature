@@ -1,4 +1,4 @@
-Feature: generated Rakefile
+Feature: generated gemspec
   In order to start a new gem
   A user should be able to
   generate a gemspec
