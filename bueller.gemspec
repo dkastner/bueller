@@ -4,7 +4,7 @@ require 'bueller/version'
 Gem::Specification.new do |s|
   s.name = 'bueller'
   s.version = Bueller::VERSION
-  s.date = "2011-03-05"
+  s.date = "2012-03-26"
   s.authors = ['Derek Kastner']
   s.email = 'dkastner@gmail.com'
   s.homepage = 'http://github.com/dkastner/bueller'
