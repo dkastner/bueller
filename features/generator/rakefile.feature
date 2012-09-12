@@ -10,9 +10,7 @@ Feature: generated Rakefile
   Scenario: shared
     When I generate a project named 'the-perfect-gem' that is 'zomg, so good' and described as 'Descriptive'
 
-    Then 'Rakefile' requires 'rubygems'
-    And 'Rakefile' requires 'rake'
-    And 'Rakefile' requires 'rake/rdoctask'
+    Then 'Rakefile' requires 'rake/rdoctask'
 
   Scenario: bacon
     When I generate a bacon project named 'the-perfect-gem' that is 'zomg, so good'
