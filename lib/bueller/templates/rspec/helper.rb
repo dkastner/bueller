@@ -1,13 +1,5 @@
-require 'bundler'
-begin
-  Bundler.setup
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
-end
+require 'bundler/setup'
 
-require 'rspec'
 require '<%= require_name %>'
 
 # Requires supporting files with custom matchers and macros, etc,
