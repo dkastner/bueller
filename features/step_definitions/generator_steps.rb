@@ -61,7 +61,7 @@ end
 
 
 When /^I generate a (.*)project named '((?:\w|-|_)+)' that is '([^']*)'$/ do |testing_framework, name, summary|
-  When "I generate a #{testing_framework}project named '#{name}' that is '#{summary}' and described as ''"
+  step "I generate a #{testing_framework}project named '#{name}' that is '#{summary}' and described as ''"
 end
 
 When /^I generate a (.*)project named '((?:\w|-|_)+)' that is '([^']*)' and described as '([^']*)'$/ do |testing_framework, name, summary, description|
@@ -95,22 +95,23 @@ end
 Then /^a directory named '(.*)' is created$/ do |directory|
   directory = File.join(@working_dir, directory)
 
-  File.exists?(directory).should be_true # "#{directory} did not exist"
-  File.directory?(directory).should be_true # "#{directory} is not a directory"
+  puts "#{directory} contents: " + `ls #{directory}`
+  File.exists?(directory).should be_true, "#{directory} did not exist"
+  File.directory?(directory).should be_true, "#{directory} is not a directory"
 end
 
 Then "cucumber directories are created" do
-  Then "a directory named 'the-perfect-gem/features' is created"
-  Then "a directory named 'the-perfect-gem/features/support' is created"
-  Then "a directory named 'the-perfect-gem/features/step_definitions' is created"
+  step "a directory named 'the-perfect-gem/features' is created"
+  step "a directory named 'the-perfect-gem/features/support' is created"
+  step "a directory named 'the-perfect-gem/features/step_definitions' is created"
 end
 
 
 Then /^a file named '(.*)' is created$/ do |file|
   file = File.join(@working_dir, file)
 
-  File.exists?(file).should be_true #, "#{file} expected to exist, but did not"
-  File.file?(file).should be_true # "#{file} expected to be a file, but is not"
+  File.exists?(file).should be_true, "#{file} expected to exist, but did not"
+  File.file?(file).should be_true, "#{file} expected to be a file, but is not"
 end
 
 Then /^a file named '(.*)' is not created$/ do |file|
@@ -120,12 +121,12 @@ Then /^a file named '(.*)' is not created$/ do |file|
 end
 
 Then /^a sane '.gitignore' is created$/ do
-  Then "a file named 'the-perfect-gem/.gitignore' is created"
-  Then "'coverage' is ignored by git"
-  Then "'\\*\\.swp' is ignored by git"
-  Then "'\\.DS_Store' is ignored by git"
-  Then "'rdoc' is ignored by git"
-  Then "'pkg' is ignored by git"
+  step "a file named 'the-perfect-gem/.gitignore' is created"
+  step "'coverage' is ignored by git"
+  step "'\\*\\.swp' is ignored by git"
+  step "'\\.DS_Store' is ignored by git"
+  step "'rdoc' is ignored by git"
+  step "'pkg' is ignored by git"
 end
 
 Then /^'(.*)' is ignored by git$/ do |git_ignore|
@@ -157,44 +158,44 @@ Then /^'(.*)' contains( regex)? '(.*)'$/ do |file, regex, expected_string|
 end
 
 Then /^'(.*)' mentions copyright belonging to me in (\d{4})$/ do |file, year|
-  Then %Q{'#{file}' contains regex 'Copyright \\(c\\) #{year} #{@user_name}'}
+  step %Q{'#{file}' contains regex 'Copyright \\(c\\) #{year} #{@user_name}'}
 end
 
 Then /^'(.*)' mentions copyright belonging to me in the current year$/ do |file|
   current_year = Time.now.year
-  Then "'#{file}' mentions copyright belonging to me in #{current_year}"
+  step "'#{file}' mentions copyright belonging to me in #{current_year}"
 end
 
 
 Then /^LICENSE credits '(.*)'$/ do |copyright_holder|
-  Then "a file named 'the-perfect-gem/LICENSE' is created"
-  Then "'LICENSE' contains '#{copyright_holder}'"
+  step "a file named 'the-perfect-gem/LICENSE' is created"
+  step "'LICENSE' contains '#{copyright_holder}'"
 end
 
 Then /^LICENSE has a copyright in the year (\d+)$/ do |year|
-  Then "a file named 'the-perfect-gem/LICENSE' is created"
-  Then "'LICENSE' contains '#{year}'"
+  step "a file named 'the-perfect-gem/LICENSE' is created"
+  step "'LICENSE' contains '#{year}'"
 end
 
 
 Then /^'(.*)' should define '(.*)' as a subclass of '(.*)'$/ do |file, class_name, superclass_name|
-  Then "'#{file}' contains 'class #{class_name} < #{superclass_name}'"
+  step "'#{file}' contains 'class #{class_name} < #{superclass_name}'"
 end
 
 Then /^'(.*)' should describe '(.*)'$/ do |file, describe_name|
-  Then "'#{file}' contains regex 'describe \"?#{describe_name}\"? do'"
+  step "'#{file}' contains regex 'describe \"?#{describe_name}\"? do'"
 end
 
 Then /^'(.*)' should contextualize '(.*)'$/ do |file, describe_name|
-  Then "'#{file}' contains regex 'context \"#{describe_name}\" do'"
+  step "'#{file}' contains regex 'context \"#{describe_name}\" do'"
 end
 
 Then /^'(.*)' should have tests for '(.*)'$/ do |file, describe_name|
-  Then %Q{'#{file}' contains 'Shindo.tests("#{describe_name}") do'}
+  step %Q{'#{file}' contains 'Shindo.tests("#{describe_name}") do'}
 end
 
 Then /^'(.*)' requires '(.*)'$/ do |file, lib|
-  Then %Q{'#{file}' contains regex 'require ['"]#{Regexp.escape(lib)}['"]'}
+  step %Q{'#{file}' contains regex 'require ['"]#{Regexp.escape(lib)}['"]'}
 end
 
 Then /^'(.*)' does not require '(.*)'$/ do |file, lib|
@@ -204,11 +205,11 @@ Then /^'(.*)' does not require '(.*)'$/ do |file, lib|
 end
 
 Then /^Rakefile does not require '(.*)'$/ do |file|
-  Then "'Rakefile' does not require '#{file}'"
+  step "'Rakefile' does not require '#{file}'"
 end
 
 Then /^Rakefile requires '(.*)'$/ do |file|
-  Then "'Rakefile' requires '#{file}'"
+  step "'Rakefile' requires '#{file}'"
 end
 
 Then /^Rakefile does not instantiate a (.*)$/ do |task_name|
@@ -217,16 +218,16 @@ Then /^Rakefile does not instantiate a (.*)$/ do |task_name|
 end
 
 Then /^Rakefile instantiates a (.*)$/ do |task_name|
-  Then %Q{'Rakefile' contains '#{task_name}'}
+  step %Q{'Rakefile' contains '#{task_name}'}
 end
 
 
 Then /^'(.+?)' should autorun tests$/ do |test_helper|
-  Then %Q{'#{test_helper}' contains 'MiniTest::Unit.autorun'}
+  step %Q{'#{test_helper}' contains 'MiniTest::Unit.autorun'}
 end
 
 Then /^cucumber world extends "(.*)"$/ do |module_to_extend|
-  Then %Q{'features/support/env.rb' contains 'World\(#{module_to_extend}\)'}
+  step %Q{'features/support/env.rb' contains 'World\(#{module_to_extend}\)'}
 end
 
 
@@ -284,9 +285,9 @@ Then /^'Gemfile' depends on the gemspec$/ do
 end
 
 Then /^the gemspec has '(.*)' set to '(.*)'$/ do |property, value|
-  Then %Q{'the-perfect-gem.gemspec' contains regex '\\.#{property}\\s*=.*['"]#{Regexp.escape(value)}['"]'}
+  step %Q{'the-perfect-gem.gemspec' contains regex '\\.#{property}\\s*=.*['"]#{Regexp.escape(value)}['"]'}
 end
 
 Then /^the gemspec has development dependency '(.*)'$/ do |gem|
-  Then %Q{'the-perfect-gem.gemspec' contains 'add_development_dependency '#{gem}''}
+  step %Q{'the-perfect-gem.gemspec' contains 'add_development_dependency '#{gem}''}
 end
