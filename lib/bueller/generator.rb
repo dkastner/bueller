@@ -102,10 +102,7 @@ class Bueller
 
       development_dependencies << 'cucumber' if use_cucumber?
 
-      development_dependencies << 'bundler'
       development_dependencies << 'bueller'
-      development_dependencies << 'rake'
-      development_dependencies << 'rcov'
 
       development_dependencies << 'reek' if use_reek?
       development_dependencies << 'roodi' if use_roodi?
@@ -181,15 +178,10 @@ class Bueller
         raise FileInTheWay, "The directory #{target_dir} already exists, aborting. Maybe move it out of the way before continuing?"
       end
 
-      require 'bundler'
-      require 'bundler/cli'
-
       Dir.chdir File.dirname(target_dir) do
-        cli = Bundler::CLI.new
-        cli.gem project_name
+        $stderr.puts Bundler.clean_system 'bundle', 'gem', project_name
       end
 
-      append_template_in_target '.gitignore'
       output_template_in_target 'Rakefile'
       output_template_in_target 'LICENSE'
       output_template_in_target 'README.rdoc'

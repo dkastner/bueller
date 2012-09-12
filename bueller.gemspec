@@ -29,15 +29,15 @@ Gem::Specification.new do |s|
                'lib/bueller/templates/rspec/.rspec']
   s.test_files = Dir.glob('spec/**/*')
 
-  s.add_runtime_dependency 'bundler', '~> 1.1.0'
+  s.add_runtime_dependency 'bundler', '~> 1.2.0'
   s.add_runtime_dependency 'git', '>= 1.2.5'
   s.add_runtime_dependency 'rake'
-  s.add_development_dependency 'activesupport', '~> 2.3.5'
+  s.add_development_dependency 'activesupport'
   s.add_development_dependency 'bluecloth'
   s.add_development_dependency 'cucumber'
   s.add_development_dependency 'mhennemeyer-output_catcher'
   s.add_development_dependency 'redgreen'
-  s.add_development_dependency 'rspec', '~> 2.0.0'
+  s.add_development_dependency 'rspec', '~> 2.11.0'
   s.add_development_dependency 'sandbox'
   s.add_development_dependency 'timecop'
   s.add_development_dependency 'yard', '~> 0.6.0'
