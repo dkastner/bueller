@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
                'lib/bueller/templates/rspec/.rspec']
   s.test_files = Dir.glob('spec/**/*')
 
-  s.add_runtime_dependency 'bundler', '~> 1.2.0'
+  s.add_runtime_dependency 'bundler', '~> 1.1'
   s.add_runtime_dependency 'git', '>= 1.2.5'
   s.add_runtime_dependency 'rake'
   s.add_development_dependency 'activesupport'
